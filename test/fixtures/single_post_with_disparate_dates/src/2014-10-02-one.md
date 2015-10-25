@@ -1,4 +1,4 @@
 ---
 title: first post
-date: 2014-11-04
+date: 11-04-2014
 ---
