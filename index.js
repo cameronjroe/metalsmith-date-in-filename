@@ -9,13 +9,11 @@ module.exports = function(options){
       }
       var m;
       if (m = fileName.match(/(\d{4}-\d{2}-\d{2})/)) {
-          fileMeta.date = new Date(m[1]);
+        var dateString = m[1].substr(5, 2) +'-'+ m[1].substr(8, 2) +'-'+ m[1].substr(0, 4);
+        fileMeta.date = new Date(dateString);
       } else if (m = fileName.match(/(\d{8})/)) {
-          fileMeta.date = new Date(
-              m[1].substr(0, 4) +'-'+
-              m[1].substr(4, 2) +'-'+
-              m[1].substr(6, 2)
-          );
+        var dateString = m[1].substr(4, 2) +'-'+ m[1].substr(6, 2) +'-'+ m[1].substr(0, 4);
+        fileMeta.date = new Date(dateString);
       }
     });
     var filesWithoutContents = _.zipObject(_.map(files, function (fileMeta, fileName) {
